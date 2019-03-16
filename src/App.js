@@ -11,12 +11,16 @@ class App extends Component {
   	]
   }
 
+  switchNameHandler = () => {
+  	console.log('Was Clik');
+  }
+
   render() {
     return (
       <div className="App">
         <h1> Hi, I am a react App for Learning </h1>
         <p>This working fine. I love it</p>
-        <button> Switch Name</button>
+        <button onClick={this.switchNameHandler}> Switch Name</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
