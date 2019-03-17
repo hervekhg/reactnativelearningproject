@@ -12,7 +12,16 @@ class App extends Component {
   }
 
   switchNameHandler = () => {
-  	console.log('Was Clik');
+    //console.log('Was Clik');
+    this.setState(
+      {persons:
+        [
+          { name : 'Herve', age:31 },
+          { name : 'Gael', age:22 },
+          { name : 'Isabelle', age:29 }
+        ]
+      }
+  );
   }
 
   render() {
@@ -21,7 +30,11 @@ class App extends Component {
         <h1> Hi, I am a react App for Learning </h1>
         <p>This working fine. I love it</p>
         <button onClick={this.switchNameHandler}> Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click = {this.switchNameHandler}
+        > My Hobbies : Tennis </Person>
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
 
