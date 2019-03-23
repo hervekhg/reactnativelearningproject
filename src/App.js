@@ -17,9 +17,9 @@ class App extends Component {
       {
         persons:
           [
-            { name: 'Herve', age: 31 },
-            { name: event.target.value, age: 22 },
-            { name: 'Isabelle', age: 27 }
+            { id: 'fefefv', name: 'Herve', age: 31 },
+            { id: 'vdere', name: event.target.value, age: 22 },
+            { id: 'wevez', name: 'Isabelle', age: 27 }
           ]
       }
     );
@@ -31,7 +31,8 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) =>{
-    const persons = this.state.persons;
+    //const persons = this.state.persons;
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
@@ -53,10 +54,10 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return <Person
-              click={() => this.deletePersonHandler(index)}
-              // click={this.deletePersonHandler.bind(this, index)} //Equivalen à ligne au dessus
+              click={() => this.deletePersonHandler(index)} // click={this.deletePersonHandler.bind(this, index)}
               name={person.name}
-              age={person.age} />
+              age={person.age} 
+              key={person.id}/>
           })}
         </div>
       );
