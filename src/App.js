@@ -21,6 +21,8 @@ class App extends Component {
     const person = {
       ...this.state.persons[personIndex]
     }
+
+    //Mise à jour de la personne
     person.name = event.target.value;
     const persons = [...this.state.persons];
     persons[personIndex] = person;
@@ -43,7 +45,8 @@ class App extends Component {
   render() {
 
     const style = {
-      backgroundColor: 'White',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -65,6 +68,7 @@ class App extends Component {
           })}
         </div>
       );
+      style.backgroundColor = 'red';
     }
     return (
       <div className="App">
