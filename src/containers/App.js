@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -45,7 +46,6 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -57,28 +57,14 @@ class App extends Component {
           />
         </div>
       );
-      btnClass = classes.Red;
     }
-
-
-    const assignedClasses =  [];
-    if (this.state.persons.length <=2) {
-      assignedClasses.push(classes.red); // classes = ['red']
-    }
-
-    if(this.state.persons.length <=1){
-      assignedClasses.push(classes.bold); // classes = ['red', 'bold']
-    }
-    
-
     return (
         <div className={classes.App}>
-          <h1> Hi, I am a react App for Learning </h1>
-          <p className={assignedClasses.join(' ')}>This working fine. I love it</p>
-          <button
-            className={btnClass}
-            onClick={() => this.togglePersonsHandler()}> Switch Name
-          </button>
+          <Cockpit
+            showPersons = {this.state.showPersons}
+            persons = {this.state.persons}
+            clicked = {this.togglePersonsHandler}
+          />
           {persons}
         </div>
     );
